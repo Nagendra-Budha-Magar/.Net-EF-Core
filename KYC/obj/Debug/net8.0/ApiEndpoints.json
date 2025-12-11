@@ -1,0 +1,44 @@
+[
+  {
+    "ContainingType": "KYC.Controllers.GuardianController",
+    "Method": "Add",
+    "RelativePath": "api/Guardian",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "KYC.DtoFile.GuardianDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "KYC.Controllers.PersonalInfoController",
+    "Method": "Add",
+    "RelativePath": "api/PersonalInfo",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "KYC.DtoFile.PersonalInfoDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "KYC.Controllers.PersonalInfoController",
+    "Method": "GetAllPersonalDetail",
+    "RelativePath": "api/PersonalInfo",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  }
+]
