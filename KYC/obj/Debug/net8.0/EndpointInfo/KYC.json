@@ -5,6 +5,37 @@
     "version": "1.0"
   },
   "paths": {
+    "/api/Document": {
+      "post": {
+        "tags": [
+          "Document"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DocumentDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DocumentDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/DocumentDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/Guardian": {
       "post": {
         "tags": [
@@ -25,6 +56,47 @@
             "application/*+json": {
               "schema": {
                 "$ref": "#/components/schemas/GuardianDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Guardian"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/KYC": {
+      "post": {
+        "tags": [
+          "KYC"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/KYCDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/KYCDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/KYCDto"
               }
             }
           }
@@ -80,6 +152,23 @@
   },
   "components": {
     "schemas": {
+      "DocumentDto": {
+        "required": [
+          "citizenNumber"
+        ],
+        "type": "object",
+        "properties": {
+          "citizenNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "issueDate": {
+            "type": "string",
+            "format": "date"
+          }
+        },
+        "additionalProperties": false
+      },
       "GuardianDto": {
         "required": [
           "guardianFirstName",
@@ -94,6 +183,26 @@
           "guardianLasttName": {
             "type": "string",
             "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "KYCDto": {
+        "required": [
+          "document",
+          "guardian",
+          "personalInfo"
+        ],
+        "type": "object",
+        "properties": {
+          "personalInfo": {
+            "$ref": "#/components/schemas/PersonalInfoDto"
+          },
+          "guardian": {
+            "$ref": "#/components/schemas/GuardianDto"
+          },
+          "document": {
+            "$ref": "#/components/schemas/DocumentDto"
           }
         },
         "additionalProperties": false

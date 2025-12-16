@@ -2,12 +2,13 @@
 using KYC.DtoFile;
 using KYC.Models.Entity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace KYC.Controllers
 {
     [Route("api/[Controller]")]
     [ApiController]
-    public class GuardianController : Controller
+    public class GuardianController : ControllerBase
     {
         public readonly ApplicationDbContext _DbContext;
         public GuardianController(ApplicationDbContext dbContext)
@@ -28,6 +29,16 @@ namespace KYC.Controllers
                 
             return Ok(Ginfo);
         }
-        
+
+        [HttpGet]
+        public async Task<IActionResult> GetGuardians()
+        {
+            var gGinfo = await _DbContext.Guardians.Select(dto => new GuardianDto
+            {
+                GuardianFirstName = dto.GuardianFirstName,
+                GuardianLasttName = dto.GuardianLasttName
+            }).ToListAsync();
+            return Ok(gGinfo);
+        }
     }
 }

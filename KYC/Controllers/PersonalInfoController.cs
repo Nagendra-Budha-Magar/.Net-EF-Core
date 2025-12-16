@@ -9,7 +9,7 @@ namespace KYC.Controllers
 {
     [Route("api/[Controller]")]
     [ApiController]
-    public class PersonalInfoController : Controller
+    public class PersonalInfoController : ControllerBase
     {
         private readonly ApplicationDbContext _dbContext;
         public PersonalInfoController(ApplicationDbContext dbContext)
@@ -24,9 +24,10 @@ namespace KYC.Controllers
                 FirstName = dto.FirstName,
                 LastName = dto.LastName,
                 Gender = dto.Gender,
-                PhoneNo = dto.PhoneNo
+                PhoneNo = dto.PhoneNo, 
+                DateofBirth = dto.DateofBirth
             };
-            await _dbContext.PersonalInfo.AddAsync(pInfo);
+            _dbContext.PersonalInfos.Add(pInfo);
             await _dbContext.SaveChangesAsync();
             return Ok(pInfo);
 
@@ -35,7 +36,7 @@ namespace KYC.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAllPersonalDetail()
         {
-            var data = await _dbContext.PersonalInfo.Select(dto => new PersonalInfoDto
+            var data = await _dbContext.PersonalInfos.Select(dto => new PersonalInfoDto
             {
                 FirstName = dto.FirstName,
                 LastName = dto.LastName,

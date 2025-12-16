@@ -136,3 +136,5 @@ D:\Net Learning class\KYC\KYC\obj\Debug\net8.0\refint\KYC.dll
 D:\Net Learning class\KYC\KYC\obj\Debug\net8.0\KYC.pdb
 D:\Net Learning class\KYC\KYC\obj\Debug\net8.0\KYC.genruntimeconfig.cache
 D:\Net Learning class\KYC\KYC\obj\Debug\net8.0\ref\KYC.dll
+D:\Net Learning class\KYC\KYC\obj\Debug\net8.0\KYC.sourcelink.json
+D:\Net Learning class\KYC\KYC\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt

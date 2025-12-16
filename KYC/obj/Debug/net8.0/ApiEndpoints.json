@@ -1,5 +1,21 @@
 [
   {
+    "ContainingType": "KYC.Controllers.DocumentController",
+    "Method": "Add",
+    "RelativePath": "api/Document",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "KYC.DtoFile.DocumentDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "KYC.Controllers.GuardianController",
     "Method": "Add",
     "RelativePath": "api/Guardian",
@@ -10,6 +26,32 @@
       {
         "Name": "dto",
         "Type": "KYC.DtoFile.GuardianDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "KYC.Controllers.GuardianController",
+    "Method": "GetGuardians",
+    "RelativePath": "api/Guardian",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "KYC.Controllers.KYCController",
+    "Method": "Add",
+    "RelativePath": "api/KYC",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "KYC.DtoFile.KYCDto",
         "IsRequired": true
       }
     ],
