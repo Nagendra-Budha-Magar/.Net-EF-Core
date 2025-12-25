@@ -11,5 +11,8 @@ namespace KYC.data
         public DbSet<PersonalInfo> PersonalInfos { get; set; }
         public DbSet<Guardian> Guardians { get; set; }
         public DbSet<Document> Documents { get; set; }
+
+
     }
+
 }

@@ -1,15 +1,11 @@
-﻿namespace KYC.Models.Entity
+﻿namespace KYC.DtoFile
 {
-    public class PersonalInfo
+    public class UpdatePersonalInfoDto
     {
-        public int Id { get; set; }
         public required string FirstName { get; set; }
         public required string LastName { get; set; }
         public required string Gender { get; set; }
-        public DateOnly DateofBirth { get; set; }
         public string? MatrialStatus { get; set; }
         public required string PhoneNo { get; set; }
     }
-
-    
 }

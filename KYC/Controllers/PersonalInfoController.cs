@@ -13,6 +13,7 @@ namespace KYC.Controllers
     {
         private readonly ApplicationDbContext _dbContext;
         public PersonalInfoController(ApplicationDbContext dbContext)
+
         {
             _dbContext = dbContext;
         }
@@ -44,6 +45,56 @@ namespace KYC.Controllers
                 PhoneNo = dto.PhoneNo
             }).ToListAsync();
             return Ok(data);
-        } 
+        }
+
+        [HttpGet]
+        [Route("{Id:int}")]
+
+        public async  Task<IActionResult> GetInfoById (int Id)
+        {
+            var PinfoId = await _dbContext.PersonalInfos.FindAsync(Id);
+            if(PinfoId is null)
+            {
+                return NotFound();
+            }
+            return Ok(PinfoId);
+        }
+
+        [HttpPut]
+        [Route("{Id:int}")]
+
+        public async Task<IActionResult> UpdateInfo(int Id, UpdatePersonalInfoDto Dto)
+        {
+            var PInfo = await _dbContext.PersonalInfos.FindAsync(Id);
+
+            if(PInfo is null)
+            {
+                return NotFound();
+            }
+            PInfo.FirstName = Dto.FirstName;
+            PInfo.LastName = Dto.LastName;
+            PInfo.MatrialStatus = Dto.MatrialStatus;
+            PInfo.PhoneNo = Dto.PhoneNo;
+
+            await _dbContext.SaveChangesAsync();
+            return Ok(PInfo);
+        }
+
+        [HttpDelete]
+        [Route("{Id:int}")]
+
+        public async Task<IActionResult> DeleteInfo (int Id)
+        {
+            var Pinfo = await _dbContext.PersonalInfos.FindAsync(Id);
+
+            if(Pinfo is null)
+            {
+                return NotFound();
+            }
+            _dbContext.Remove(Pinfo);
+            await _dbContext.SaveChangesAsync();
+
+            return Ok();
+        }
     }
 }

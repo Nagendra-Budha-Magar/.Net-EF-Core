@@ -82,5 +82,74 @@
     "Order": 0,
     "Parameters": [],
     "ReturnTypes": []
+  },
+  {
+    "ContainingType": "KYC.Controllers.PersonalInfoController",
+    "Method": "GetInfoById",
+    "RelativePath": "api/PersonalInfo/{Id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "KYC.Controllers.PersonalInfoController",
+    "Method": "UpdateInfo",
+    "RelativePath": "api/PersonalInfo/{Id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "Dto",
+        "Type": "KYC.DtoFile.UpdatePersonalInfoDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "KYC.Controllers.PersonalInfoController",
+    "Method": "DeleteInfo",
+    "RelativePath": "api/PersonalInfo/{Id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "KYC.Controllers.PersonalInfoss",
+    "Method": "CreatePersonalInfo",
+    "RelativePath": "api/PersonalInfoss/add",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "personalInfoss",
+        "Type": "KYC.Models.Entity.PersonalInfo",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
   }
 ]
